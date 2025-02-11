@@ -1,0 +1,79 @@
+[gd_scene load_steps=9 format=3 uid="uid://bp4c2a1afxhtl"]
+
+[ext_resource type="Texture2D" uid="uid://bbgncmjotvblq" path="res://Art/Ninja Adventure - Asset Pack/Actor/Characters/ManGreen/SpriteSheet.png" id="1_e4tpu"]
+[ext_resource type="Script" path="res://Scripts/Player.cs" id="1_meu3q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3th0"]
+atlas = ExtResource("1_e4tpu")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jgbrn"]
+atlas = ExtResource("1_e4tpu")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u6lci"]
+atlas = ExtResource("1_e4tpu")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8q0ww"]
+atlas = ExtResource("1_e4tpu")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_md00f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u3th0")
+}],
+"loop": true,
+"name": &"IdleDown",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jgbrn")
+}],
+"loop": true,
+"name": &"IdleLeft",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u6lci")
+}],
+"loop": true,
+"name": &"IdleRight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8q0ww")
+}],
+"loop": true,
+"name": &"IdleUp",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ca3jj"]
+radius = 6.0
+
+[node name="CharacterBody2D_Player" type="CharacterBody2D"]
+z_index = 90
+collision_mask = 6
+script = ExtResource("1_meu3q")
+Speed = 5500.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_md00f")
+animation = &"IdleDown"
+autoplay = "IdleDown"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_ca3jj")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+process_callback = 0
+limit_smoothed = true
+position_smoothing_enabled = true
