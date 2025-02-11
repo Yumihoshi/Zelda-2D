@@ -6,14 +6,12 @@ namespace Zelda2D.Scripts.Player;
 public partial class Player : CharacterBody2D
 {
     [ExportGroup("玩家属性")] [Export] public float Speed;
-
-    private PlayerAnimationController _animationController;
+    
+    private PlayerAnim _playerAnim;
 
     public override void _Ready()
     {
-        // 获取动画控制器
-        _animationController =
-            GetNode<PlayerAnimationController>("AnimatedSprite2D");
+        _playerAnim = GetNode<PlayerAnim>("AnimationPlayer");
     }
 
     public override void _PhysicsProcess(double delta)
@@ -30,14 +28,14 @@ public partial class Player : CharacterBody2D
         if (direction != Vector2.Zero)
         {
             Velocity = Speed * delta * direction;
-            _animationController.PlayMoveAnim(direction);
         }
         // 没有输入时减速
         else
         {
             Velocity = Velocity.MoveToward(Vector2.Zero, Speed * delta);
-            _animationController.PlayIdleAnim();
         }
+        
+        _playerAnim.PlayAnim(direction);
 
         MoveAndSlide();
     }
