@@ -14,7 +14,7 @@ config/name="Zelda-2D"
 config/tags=PackedStringArray("习作")
 run/main_scene="res://Scenes/GameScene.tscn"
 config/features=PackedStringArray("4.3", "C#", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Art/Icons/DefaultIcon.png"
 
 [display]
 

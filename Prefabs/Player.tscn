@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bp4c2a1afxhtl"]
+[gd_scene load_steps=10 format=3 uid="uid://bp4c2a1afxhtl"]
 
 [ext_resource type="Texture2D" uid="uid://bbgncmjotvblq" path="res://Art/Ninja Adventure - Asset Pack/Actor/Characters/ManGreen/SpriteSheet.png" id="1_e4tpu"]
-[ext_resource type="Script" path="res://Scripts/Player.cs" id="1_meu3q"]
+[ext_resource type="Script" path="res://Scripts/Player/Player.cs" id="1_meu3q"]
+[ext_resource type="Script" path="res://Scripts/Player/PlayerAnimationController.cs" id="3_8s6oq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u3th0"]
 atlas = ExtResource("1_e4tpu")
@@ -67,6 +68,7 @@ Speed = 5500.0
 sprite_frames = SubResource("SpriteFrames_md00f")
 animation = &"IdleDown"
 autoplay = "IdleDown"
+script = ExtResource("3_8s6oq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
