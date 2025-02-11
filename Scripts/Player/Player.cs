@@ -1,4 +1,5 @@
 using Godot;
+using LumiVerseFramework;
 
 namespace Zelda2D.Scripts.Player;
 
@@ -27,10 +28,16 @@ public partial class Player : CharacterBody2D
             Input.GetVector("MoveLeft", "MoveRight", "MoveUp", "MoveDown");
         // 有输入时移动
         if (direction != Vector2.Zero)
+        {
             Velocity = Speed * delta * direction;
+            _animationController.PlayMoveAnim(direction);
+        }
         // 没有输入时减速
         else
+        {
             Velocity = Velocity.MoveToward(Vector2.Zero, Speed * delta);
+            _animationController.PlayIdleAnim();
+        }
 
         MoveAndSlide();
     }
