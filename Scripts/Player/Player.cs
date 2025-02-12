@@ -6,7 +6,7 @@ namespace Zelda2D.Scripts.Player;
 
 public partial class Player : CharacterBody2D
 {
-    [ExportGroup("玩家属性")] [Export] public float Speed;
+    [ExportGroup("玩家属性")] [Export] public float speed;
 
     private PlayerAnim _playerAnim;
     private Vector2 _input;
@@ -43,12 +43,12 @@ public partial class Player : CharacterBody2D
         // 有输入时移动
         if (_input != Vector2.Zero)
         {
-            Velocity = Speed * delta * _input;
+            Velocity = speed * delta * _input;
         }
         // 没有输入时减速
         else
         {
-            Velocity = Velocity.MoveToward(Vector2.Zero, Speed * delta);
+            Velocity = Velocity.MoveToward(Vector2.Zero, speed * delta);
         }
 
         MoveAndSlide();

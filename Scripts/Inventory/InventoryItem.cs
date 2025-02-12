@@ -12,20 +12,25 @@ public partial class InventoryItem : Resource
         Potions
     }
 
-    public int Count = 1;
+    public int Count { get; set; } = 1;
 
-    [ExportGroup("物品信息")] [Export] public string Name = "";
+    public string Name => _name;
+    public SlotType Type => _type;
+    public Texture2D Texture => _texture;
+    public Texture2D SideTexture => _sideTexture;
+    public RectangleShape2D GroundCollisionShape => _groundCollisionShape;
+    public int MaxCount => _maxCount;
+    public int Price => _price;
 
-    [Export] public SlotType Type = SlotType.NotEquipable;
+    [ExportGroup("物品信息")] [Export] private string _name = "";
 
-    [Export] public Texture2D Texture;
-    [Export] public Texture2D SideTexture;
+    [Export] private SlotType _type = SlotType.NotEquipable;
 
-    /// <summary>
-    /// 地面碰撞形状
-    /// </summary>
-    [Export] public RectangleShape2D GroundCollisionShape;
+    [Export] private Texture2D _texture;
+    [Export] private Texture2D _sideTexture;
+    
+    [Export] private RectangleShape2D _groundCollisionShape;
 
-    [Export] public int MaxCount;
-    [Export] public int Price;
+    [Export] private int _maxCount;
+    [Export] private int _price;
 }

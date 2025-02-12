@@ -1,0 +1,73 @@
+[gd_scene load_steps=3 format=3 uid="uid://ru2wfbbsho8i"]
+
+[ext_resource type="Texture2D" uid="uid://dhj1b7itvjmgc" path="res://Art/Ninja Adventure - Asset Pack/Ui/Dialog/FacesetBox.png" id="1_k2lf4"]
+[ext_resource type="Script" path="res://Scripts/Inventory/InventorySlot.cs" id="1_qs0ej"]
+
+[node name="VBoxContainer_InventorySlot" type="VBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_qs0ej")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+texture = ExtResource("1_k2lf4")
+
+[node name="MenuButton" type="MenuButton" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+button_mask = 2
+item_count = 2
+popup/item_0/text = "装备"
+popup/item_1/text = "丢弃"
+popup/item_1/id = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="NinePatchRect/MenuButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/MenuButton/CenterContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Button_OnClick" type="Button" parent="NinePatchRect"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label_Count" type="Label" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -30.0
+offset_top = -28.0
+offset_right = -7.0
+offset_bottom = -4.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "56"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Label_Name" type="Label" parent="."]
+layout_mode = 2
+
+[node name="Label_Price" type="Label" parent="."]
+layout_mode = 2

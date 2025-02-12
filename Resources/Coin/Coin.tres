@@ -6,9 +6,9 @@
 
 [resource]
 script = ExtResource("2_5c044")
-Name = "金币"
-Type = 0
-Texture = ExtResource("2_qswd8")
-GroundCollisionShape = ExtResource("1_b110j")
-MaxCount = 100
-Price = 1
+_name = "金币"
+_type = 0
+_texture = ExtResource("2_qswd8")
+_groundCollisionShape = ExtResource("1_b110j")
+_maxCount = 100
+_price = 1
