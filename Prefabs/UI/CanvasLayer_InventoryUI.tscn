@@ -1,0 +1,71 @@
+[gd_scene load_steps=5 format=3 uid="uid://rt0pw0vw0sud"]
+
+[ext_resource type="Script" path="res://Scripts/Inventory/CanvasLayerInventoryUi.cs" id="1_kc18b"]
+[ext_resource type="Texture2D" uid="uid://d2l80s5tak5ds" path="res://Art/Ninja Adventure - Asset Pack/Ui/Dialog/DialogBoxFaceset.png" id="2_gdlts"]
+[ext_resource type="FontFile" uid="uid://ba8t5hq1q1228" path="res://Art/Ninja Adventure - Asset Pack/Ui/Font/NormalFont.ttf" id="3_0duhn"]
+
+[sub_resource type="Theme" id="Theme_envas"]
+default_font = ExtResource("3_0duhn")
+default_font_size = 24
+
+[node name="CanvasLayer_InventoryUI" type="CanvasLayer"]
+script = ExtResource("1_kc18b")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0235294, 0.0235294, 0.0235294, 0.141176)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_gdlts")
+region_rect = Rect2(49, 9, 248, 48)
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/NinePatchRect/MarginContainer"]
+layout_mode = 2
+
+[node name="Label_Title" type="Label" parent="MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_envas")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 64
+text = "珍珠的可爱包"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 3

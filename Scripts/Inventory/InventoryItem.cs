@@ -14,23 +14,16 @@ public partial class InventoryItem : Resource
 
     public int Count { get; set; } = 1;
 
-    public string Name => _name;
-    public SlotType Type => _type;
-    public Texture2D Texture => _texture;
-    public Texture2D SideTexture => _sideTexture;
-    public RectangleShape2D GroundCollisionShape => _groundCollisionShape;
-    public int MaxCount => _maxCount;
-    public int Price => _price;
+    [ExportGroup("物品信息")] [Export] public string Name { get; set; } = "";
 
-    [ExportGroup("物品信息")] [Export] private string _name = "";
+    [Export] public SlotType Type { get; set; } = SlotType.NotEquipable;
 
-    [Export] private SlotType _type = SlotType.NotEquipable;
+    [Export] public Texture2D Texture { get; set; }
 
-    [Export] private Texture2D _texture;
-    [Export] private Texture2D _sideTexture;
-    
-    [Export] private RectangleShape2D _groundCollisionShape;
+    [Export] public Texture2D SideTexture { get; set; }
 
-    [Export] private int _maxCount;
-    [Export] private int _price;
+    [Export] public RectangleShape2D GroundCollisionShape { get; set; }
+
+    [Export] public int MaxCount { get; set; }
+    [Export] public int Price { get; set; }
 }

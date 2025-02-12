@@ -1,9 +1,11 @@
-[gd_scene load_steps=30 format=3 uid="uid://bp4c2a1afxhtl"]
+[gd_scene load_steps=32 format=3 uid="uid://bp4c2a1afxhtl"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Player.cs" id="1_meu3q"]
 [ext_resource type="Shape2D" uid="uid://d24sa456f2pcc" path="res://Resources/Player/PlayerCollisionShape.tres" id="2_57mv8"]
 [ext_resource type="Texture2D" uid="uid://d1mmvc134avjl" path="res://Art/Ninja Adventure - Asset Pack/Actor/Characters/ManGreen/SeparateAnim/Walk.png" id="2_gd6iu"]
 [ext_resource type="Script" path="res://Scripts/Player/PlayerAnim.cs" id="3_1s8as"]
+[ext_resource type="PackedScene" uid="uid://rt0pw0vw0sud" path="res://Prefabs/UI/CanvasLayer_InventoryUI.tscn" id="5_mb76m"]
+[ext_resource type="Script" path="res://Scripts/Inventory/Inventory.cs" id="6_eia18"]
 
 [sub_resource type="Animation" id="Animation_f6bmr"]
 length = 0.001
@@ -248,7 +250,7 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 z_index = 90
 collision_mask = 6
 script = ExtResource("1_meu3q")
-Speed = 5500.0
+speed = 5000.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_gd6iu")
@@ -287,5 +289,11 @@ collision_mask = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 2)
 shape = ExtResource("2_57mv8")
+
+[node name="CanvasLayer_InventoryUI" parent="." instance=ExtResource("5_mb76m")]
+visible = false
+
+[node name="Inventory" type="Node" parent="."]
+script = ExtResource("6_eia18")
 
 [connection signal="area_entered" from="Area2D" to="." method="OnAreaEntered"]
