@@ -248,7 +248,7 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 z_index = 90
 collision_mask = 6
 script = ExtResource("1_meu3q")
-Speed = 5500.0
+speed = 5000.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_gd6iu")
