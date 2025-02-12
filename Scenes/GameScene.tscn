@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=4 uid="uid://ble7ecvcghlup"]
+[gd_scene load_steps=5 format=4 uid="uid://ble7ecvcghlup"]
 
 [ext_resource type="TileSet" uid="uid://cy1480o17q71h" path="res://Art/TileSets/Ground.tres" id="1_kygq3"]
 [ext_resource type="PackedScene" uid="uid://bp4c2a1afxhtl" path="res://Prefabs/Player.tscn" id="2_wtbvn"]
+[ext_resource type="PackedScene" uid="uid://bvv12utieggh6" path="res://Prefabs/PickUpItem.tscn" id="3_hwo4q"]
+[ext_resource type="Resource" uid="uid://csf22pqjersy4" path="res://Resources/Coin/Coin.tres" id="4_2ke3l"]
 
 [node name="GameScene" type="Node"]
 
@@ -34,3 +36,7 @@ tile_map_data = PackedByteArray("AAAKAOz/BAAFAAMAAAD9/+//BAAHAAMAAAD8/+3/BAAGAAM
 tile_set = ExtResource("1_kygq3")
 
 [node name="CharacterBody2D_Player" parent="." instance=ExtResource("2_wtbvn")]
+
+[node name="Area2D_PickUpItem" parent="." instance=ExtResource("3_hwo4q")]
+position = Vector2(9, 17)
+InventoryItemData = ExtResource("4_2ke3l")

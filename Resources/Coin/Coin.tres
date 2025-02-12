@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://csf22pqjersy4"]
+
+[ext_resource type="Shape2D" uid="uid://cyrh5a5ev1mxh" path="res://Resources/Coin/CoinCollisionShape.tres" id="1_b110j"]
+[ext_resource type="Script" path="res://Scripts/Inventory/InventoryItem.cs" id="2_5c044"]
+[ext_resource type="Texture2D" uid="uid://daydmbfoch76x" path="res://Art/Ninja Adventure - Asset Pack/Items/Treasure/GoldCoin.png" id="2_qswd8"]
+
+[resource]
+script = ExtResource("2_5c044")
+Name = "金币"
+Type = 0
+Texture = ExtResource("2_qswd8")
+GroundCollisionShape = ExtResource("1_b110j")
+MaxCount = 100
+Price = 1

@@ -1,5 +1,6 @@
 using Godot;
 using LumiVerseFramework;
+using Zelda2D.Scripts.Inventory;
 
 namespace Zelda2D.Scripts.Player;
 
@@ -25,6 +26,16 @@ public partial class Player : CharacterBody2D
     public override void _PhysicsProcess(double delta)
     {
         Move((float)delta);
+    }
+
+    /// <summary>
+    /// 和地面拾取物品的碰撞检测
+    /// </summary>
+    /// <param name="area"></param>
+    private void OnAreaEntered(Area2D area)
+    {
+        if (area is not PickUpItem) return;
+        area.QueueFree();
     }
 
     private void Move(float delta)

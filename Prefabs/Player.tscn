@@ -1,11 +1,9 @@
 [gd_scene load_steps=30 format=3 uid="uid://bp4c2a1afxhtl"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Player.cs" id="1_meu3q"]
+[ext_resource type="Shape2D" uid="uid://d24sa456f2pcc" path="res://Resources/Player/PlayerCollisionShape.tres" id="2_57mv8"]
 [ext_resource type="Texture2D" uid="uid://d1mmvc134avjl" path="res://Art/Ninja Adventure - Asset Pack/Actor/Characters/ManGreen/SeparateAnim/Walk.png" id="2_gd6iu"]
 [ext_resource type="Script" path="res://Scripts/Player/PlayerAnim.cs" id="3_1s8as"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_ca3jj"]
-radius = 6.0
 
 [sub_resource type="Animation" id="Animation_f6bmr"]
 length = 0.001
@@ -252,20 +250,20 @@ collision_mask = 6
 script = ExtResource("1_meu3q")
 Speed = 5500.0
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_gd6iu")
+hframes = 4
+vframes = 4
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
-shape = SubResource("CircleShape2D_ca3jj")
+shape = ExtResource("2_57mv8")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
 process_callback = 0
 limit_smoothed = true
 position_smoothing_enabled = true
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_gd6iu")
-hframes = 4
-vframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -282,3 +280,12 @@ parameters/conditions/IsMoving = false
 parameters/Idle/blend_position = Vector2(-0.0789283, -0.450848)
 parameters/Move/blend_position = Vector2(-0.0267922, -0.467797)
 script = ExtResource("3_1s8as")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 2)
+shape = ExtResource("2_57mv8")
+
+[connection signal="area_entered" from="Area2D" to="." method="OnAreaEntered"]

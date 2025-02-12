@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvv12utieggh6"]
+
+[ext_resource type="Texture2D" uid="uid://daydmbfoch76x" path="res://Art/Ninja Adventure - Asset Pack/Items/Treasure/GoldCoin.png" id="1_a5n30"]
+[ext_resource type="Script" path="res://Scripts/Inventory/PickUpItem.cs" id="1_clds7"]
+[ext_resource type="Shape2D" uid="uid://cyrh5a5ev1mxh" path="res://Resources/Coin/CoinCollisionShape.tres" id="2_j3qu5"]
+
+[node name="Area2D_PickUpItem" type="Area2D"]
+position = Vector2(568, 292)
+collision_layer = 8
+script = ExtResource("1_clds7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_a5n30")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = ExtResource("2_j3qu5")
