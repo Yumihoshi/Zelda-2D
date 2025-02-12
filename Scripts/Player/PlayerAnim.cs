@@ -1,53 +1,26 @@
 using Godot;
+using LumiVerseFramework;
 
 namespace Zelda2D.Scripts.Player;
 
-public partial class PlayerAnim : AnimationPlayer
+public partial class PlayerAnim : AnimationTree
 {
     private Vector2 _lastDirection = Vector2.Down;
 
     public void PlayAnim(Vector2 direction)
     {
-        if (direction.X != 0 && direction.Y != 0) return;
         if (direction == Vector2.Zero)
         {
-            if (_lastDirection.X > 0)
-            {
-                Play("Player/IdleRight");
-            }
-            else if (_lastDirection.X < 0)
-            {
-                Play("Player/IdleLeft");
-            }
-            else if (_lastDirection.Y > 0)
-            {
-                Play("Player/IdleDown");
-            }
-            else if (_lastDirection.Y < 0)
-            {
-                Play("Player/IdleUp");
-            }
+            Set("parameters/conditions/IsIdling", true);
+            Set("parameters/conditions/IsMoving", false);
+            Set("parameters/Idle/blend_position", _lastDirection);
         }
         else
         {
-            if (direction.X > 0)
-            {
-                Play("Player/MoveRight");
-            }
-            else if (direction.X < 0)
-            {
-                Play("Player/MoveLeft");
-            }
-            else if (direction.Y > 0)
-            {
-                Play("Player/MoveDown");
-            }
-            else if (direction.Y < 0)
-            {
-                Play("Player/MoveUp");
-            }
+            Set("parameters/conditions/IsIdling", false);
+            Set("parameters/conditions/IsMoving", true);
+            Set("parameters/Move/blend_position", direction);
+            _lastDirection = direction;
         }
-
-        _lastDirection = direction;
     }
 }
