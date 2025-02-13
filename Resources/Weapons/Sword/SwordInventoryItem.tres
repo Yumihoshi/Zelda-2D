@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://c8d2vju12xpn3"]
+
+[ext_resource type="Shape2D" uid="uid://ctm1jh3xx7qf" path="res://Resources/Weapons/Sword/SwordGroundCollsionShape.tres" id="1_3745h"]
+[ext_resource type="Texture2D" uid="uid://bd0ahoj4p7lyc" path="res://Art/Ninja Adventure - Asset Pack/Items/Weapons/Sword2/Sprite.png" id="1_blygf"]
+[ext_resource type="Script" path="res://Scripts/Inventory/InventoryItem.cs" id="1_pmaf6"]
+
+[resource]
+script = ExtResource("1_pmaf6")
+Name = "大骑士之剑"
+Type = 1
+Texture = ExtResource("1_blygf")
+GroundCollisionShape = ExtResource("1_3745h")
+MaxCount = 1
+Count = 1
+Price = 90

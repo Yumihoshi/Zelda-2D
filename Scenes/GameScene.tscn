@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=4 uid="uid://ble7ecvcghlup"]
+[gd_scene load_steps=7 format=4 uid="uid://ble7ecvcghlup"]
 
 [ext_resource type="TileSet" uid="uid://cy1480o17q71h" path="res://Art/TileSets/Ground.tres" id="1_kygq3"]
 [ext_resource type="PackedScene" uid="uid://bp4c2a1afxhtl" path="res://Prefabs/Player.tscn" id="2_wtbvn"]
 [ext_resource type="PackedScene" uid="uid://bvv12utieggh6" path="res://Prefabs/PickUpItem.tscn" id="3_hwo4q"]
 [ext_resource type="Theme" uid="uid://dugcsgnj2xob1" path="res://Resources/UI/Theme.tres" id="4_ci74r"]
 [ext_resource type="Script" path="res://Scripts/FPS/CanvasLayerFps.cs" id="5_iohjq"]
+[ext_resource type="Resource" uid="uid://c8d2vju12xpn3" path="res://Resources/Weapons/Sword/SwordInventoryItem.tres" id="6_vet6f"]
 
 [node name="GameScene" type="Node"]
 
@@ -39,38 +40,6 @@ tile_set = ExtResource("1_kygq3")
 [node name="CharacterBody2D_Player" parent="." instance=ExtResource("2_wtbvn")]
 position = Vector2(-346, 0)
 
-[node name="Area2D_PickUpItem" parent="." instance=ExtResource("3_hwo4q")]
-position = Vector2(-337, 17)
-ItemCount = 88
-
-[node name="Area2D_PickUpItem2" parent="." instance=ExtResource("3_hwo4q")]
-position = Vector2(-337, 40)
-ItemCount = 12
-
-[node name="Area2D_PickUpItem3" parent="." instance=ExtResource("3_hwo4q")]
-position = Vector2(-337, 58)
-ItemCount = 12
-
-[node name="Area2D_PickUpItem4" parent="." instance=ExtResource("3_hwo4q")]
-position = Vector2(-315, 59)
-ItemCount = 12
-
-[node name="Area2D_PickUpItem5" parent="." instance=ExtResource("3_hwo4q")]
-position = Vector2(-315, 40)
-ItemCount = 12
-
-[node name="Area2D_PickUpItem6" parent="." instance=ExtResource("3_hwo4q")]
-position = Vector2(-299, 40)
-ItemCount = 12
-
-[node name="Area2D_PickUpItem7" parent="." instance=ExtResource("3_hwo4q")]
-position = Vector2(-299, 58)
-ItemCount = 12
-
-[node name="Area2D_PickUpItem8" parent="." instance=ExtResource("3_hwo4q")]
-position = Vector2(-299, 58)
-ItemCount = 12
-
 [node name="Label" type="Label" parent="."]
 offset_left = -446.0
 offset_top = -15.0
@@ -100,3 +69,38 @@ theme = ExtResource("4_ci74r")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "FPS: 60"
+
+[node name="Coins" type="Node2D" parent="."]
+
+[node name="Area2D_PickUpItem" parent="Coins" instance=ExtResource("3_hwo4q")]
+position = Vector2(-337, 17)
+ItemCount = 88
+
+[node name="Area2D_PickUpItem2" parent="Coins" instance=ExtResource("3_hwo4q")]
+position = Vector2(-337, 40)
+ItemCount = 12
+
+[node name="Area2D_PickUpItem3" parent="Coins" instance=ExtResource("3_hwo4q")]
+position = Vector2(-337, 58)
+ItemCount = 12
+
+[node name="Area2D_PickUpItem4" parent="Coins" instance=ExtResource("3_hwo4q")]
+position = Vector2(-315, 59)
+ItemCount = 12
+
+[node name="Area2D_PickUpItem5" parent="Coins" instance=ExtResource("3_hwo4q")]
+position = Vector2(-315, 40)
+ItemCount = 12
+
+[node name="Area2D_PickUpItem6" parent="Coins" instance=ExtResource("3_hwo4q")]
+position = Vector2(-299, 40)
+ItemCount = 12
+
+[node name="Area2D_PickUpItem7" parent="Coins" instance=ExtResource("3_hwo4q")]
+position = Vector2(-299, 58)
+ItemCount = 12
+
+[node name="Area2D_PickUpItem8" parent="Coins" instance=ExtResource("3_hwo4q")]
+position = Vector2(-281, 59)
+inventoryItem = ExtResource("6_vet6f")
+ItemCount = 1
