@@ -1,15 +1,14 @@
 using Godot;
-using LumiVerseFramework;
 
 namespace Zelda2D.Scripts.Inventory;
 
 public partial class PickUpItem : Area2D
 {
+    private CollisionShape2D _collisionShape;
+
+    private Sprite2D _sprite;
     [ExportGroup("可拾取物配置")] [Export] public InventoryItem inventoryItem;
     [Export] public int ItemCount { get; set; } = 1;
-    
-    private Sprite2D _sprite;
-    private CollisionShape2D _collisionShape;
 
     public override void _Ready()
     {

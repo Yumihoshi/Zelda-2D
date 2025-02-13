@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=4 uid="uid://ble7ecvcghlup"]
+[gd_scene load_steps=6 format=4 uid="uid://ble7ecvcghlup"]
 
 [ext_resource type="TileSet" uid="uid://cy1480o17q71h" path="res://Art/TileSets/Ground.tres" id="1_kygq3"]
 [ext_resource type="PackedScene" uid="uid://bp4c2a1afxhtl" path="res://Prefabs/Player.tscn" id="2_wtbvn"]
 [ext_resource type="PackedScene" uid="uid://bvv12utieggh6" path="res://Prefabs/PickUpItem.tscn" id="3_hwo4q"]
+[ext_resource type="Theme" uid="uid://dugcsgnj2xob1" path="res://Resources/UI/Theme.tres" id="4_ci74r"]
+[ext_resource type="Script" path="res://Scripts/FPS/CanvasLayerFps.cs" id="5_iohjq"]
 
 [node name="GameScene" type="Node"]
 
@@ -35,10 +37,66 @@ tile_map_data = PackedByteArray("AAAKAOz/BAAFAAMAAAD9/+//BAAHAAMAAAD8/+3/BAAGAAM
 tile_set = ExtResource("1_kygq3")
 
 [node name="CharacterBody2D_Player" parent="." instance=ExtResource("2_wtbvn")]
+position = Vector2(-346, 0)
 
 [node name="Area2D_PickUpItem" parent="." instance=ExtResource("3_hwo4q")]
-position = Vector2(9, 17)
+position = Vector2(-337, 17)
+ItemCount = 88
 
 [node name="Area2D_PickUpItem2" parent="." instance=ExtResource("3_hwo4q")]
-position = Vector2(9, 40)
-ItemCount = 20
+position = Vector2(-337, 40)
+ItemCount = 12
+
+[node name="Area2D_PickUpItem3" parent="." instance=ExtResource("3_hwo4q")]
+position = Vector2(-337, 58)
+ItemCount = 12
+
+[node name="Area2D_PickUpItem4" parent="." instance=ExtResource("3_hwo4q")]
+position = Vector2(-315, 59)
+ItemCount = 12
+
+[node name="Area2D_PickUpItem5" parent="." instance=ExtResource("3_hwo4q")]
+position = Vector2(-315, 40)
+ItemCount = 12
+
+[node name="Area2D_PickUpItem6" parent="." instance=ExtResource("3_hwo4q")]
+position = Vector2(-299, 40)
+ItemCount = 12
+
+[node name="Area2D_PickUpItem7" parent="." instance=ExtResource("3_hwo4q")]
+position = Vector2(-299, 58)
+ItemCount = 12
+
+[node name="Area2D_PickUpItem8" parent="." instance=ExtResource("3_hwo4q")]
+position = Vector2(-299, 58)
+ItemCount = 12
+
+[node name="Label" type="Label" parent="."]
+offset_left = -446.0
+offset_top = -15.0
+offset_right = -367.0
+offset_bottom = 39.0
+theme = ExtResource("4_ci74r")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 11
+text = "移动->WSAD
+窗口/全屏->ESC
+打开关闭背包->Tab
+
+加速跑->Shift"
+vertical_alignment = 1
+
+[node name="CanvasLayer_FPS" type="CanvasLayer" parent="."]
+script = ExtResource("5_iohjq")
+
+[node name="Label_FPS" type="Label" parent="CanvasLayer_FPS"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+theme = ExtResource("4_ci74r")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "FPS: 60"

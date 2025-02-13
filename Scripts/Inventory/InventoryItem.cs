@@ -24,6 +24,6 @@ public partial class InventoryItem : Resource
 
     [Export] public int MaxCount { get; set; }
     [Export] public int Count { get; set; } = 1;
-    
+
     [Export] public int Price { get; set; }
 }

@@ -1,16 +1,16 @@
 using Godot;
-using LumiVerseFramework;
+using LumiVerseFramework.Common;
 using Zelda2D.Scripts.Inventory;
 
 namespace Zelda2D.Scripts.Player;
 
 public partial class Player : CharacterBody2D
 {
-    [ExportGroup("玩家属性")] [Export] public float speed;
-
-    private PlayerAnim _playerAnim;
     private Vector2 _input;
     private Inventory.Inventory _inventory;
+
+    private PlayerAnim _playerAnim;
+    [ExportGroup("玩家属性")] [Export] public float speed;
 
     public override void _Ready()
     {
@@ -23,6 +23,19 @@ public partial class Player : CharacterBody2D
         _input =
             Input.GetVector("MoveLeft", "MoveRight", "MoveUp", "MoveDown");
         _playerAnim.PlayAnim(_input);
+        if (Input.IsActionJustPressed("SwitchFullscreen"))
+        {
+            YumihoshiFullScreen.SwitchFullScreenAuto();
+        }
+
+        if (Input.IsActionJustPressed("SpeedUp"))
+        {
+            speed *= 2;
+        }
+        else if (Input.IsActionJustReleased("SpeedUp"))
+        {
+            speed /= 2;
+        }
     }
 
     public override void _PhysicsProcess(double delta)
@@ -45,14 +58,10 @@ public partial class Player : CharacterBody2D
     {
         // 有输入时移动
         if (_input != Vector2.Zero)
-        {
             Velocity = speed * delta * _input;
-        }
         // 没有输入时减速
         else
-        {
             Velocity = Velocity.MoveToward(Vector2.Zero, speed * delta);
-        }
 
         MoveAndSlide();
     }
