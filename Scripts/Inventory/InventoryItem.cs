@@ -12,8 +12,6 @@ public partial class InventoryItem : Resource
         Potions
     }
 
-    public int Count { get; set; } = 1;
-
     [ExportGroup("物品信息")] [Export] public string Name { get; set; } = "";
 
     [Export] public SlotType Type { get; set; } = SlotType.NotEquipable;
@@ -25,5 +23,7 @@ public partial class InventoryItem : Resource
     [Export] public RectangleShape2D GroundCollisionShape { get; set; }
 
     [Export] public int MaxCount { get; set; }
+    [Export] public int Count { get; set; } = 1;
+    
     [Export] public int Price { get; set; }
 }

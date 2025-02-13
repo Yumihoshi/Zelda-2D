@@ -10,6 +10,7 @@ position = Vector2(568, 292)
 collision_layer = 8
 script = ExtResource("1_clds7")
 inventoryItem = ExtResource("2_e8r2u")
+ItemCount = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_a5n30")

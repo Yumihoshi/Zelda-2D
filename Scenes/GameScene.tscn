@@ -38,3 +38,7 @@ tile_set = ExtResource("1_kygq3")
 
 [node name="Area2D_PickUpItem" parent="." instance=ExtResource("3_hwo4q")]
 position = Vector2(9, 17)
+
+[node name="Area2D_PickUpItem2" parent="." instance=ExtResource("3_hwo4q")]
+position = Vector2(9, 40)
+ItemCount = 20

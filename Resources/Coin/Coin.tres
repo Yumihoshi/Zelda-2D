@@ -11,4 +11,5 @@ Type = 0
 Texture = ExtResource("2_qswd8")
 GroundCollisionShape = ExtResource("1_b110j")
 MaxCount = 100
+Count = 1
 Price = 1

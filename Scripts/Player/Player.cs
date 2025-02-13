@@ -10,10 +10,12 @@ public partial class Player : CharacterBody2D
 
     private PlayerAnim _playerAnim;
     private Vector2 _input;
+    private Inventory.Inventory _inventory;
 
     public override void _Ready()
     {
         _playerAnim = GetNode<PlayerAnim>("AnimationTree");
+        _inventory = GetNode<Inventory.Inventory>("Inventory");
     }
 
     public override void _Process(double delta)
@@ -34,8 +36,9 @@ public partial class Player : CharacterBody2D
     /// <param name="area"></param>
     private void OnAreaEntered(Area2D area)
     {
-        if (area is not PickUpItem) return;
-        area.QueueFree();
+        if (area is not PickUpItem item) return;
+        _inventory.AddItem(item.inventoryItem, item.ItemCount);
+        item.QueueFree();
     }
 
     private void Move(float delta)
