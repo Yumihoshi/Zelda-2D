@@ -24,18 +24,11 @@ public partial class Player : CharacterBody2D
             Input.GetVector("MoveLeft", "MoveRight", "MoveUp", "MoveDown");
         _playerAnim.PlayAnim(_input);
         if (Input.IsActionJustPressed("SwitchFullscreen"))
-        {
             YumihoshiFullScreen.SwitchFullScreenAuto();
-        }
 
         if (Input.IsActionJustPressed("SpeedUp"))
-        {
             speed *= 2;
-        }
-        else if (Input.IsActionJustReleased("SpeedUp"))
-        {
-            speed /= 2;
-        }
+        else if (Input.IsActionJustReleased("SpeedUp")) speed /= 2;
     }
 
     public override void _PhysicsProcess(double delta)

@@ -35,6 +35,8 @@ public partial class InventoryUi : CanvasLayer
         {
             Node inventorySlot = _inventorySlotPrefab.Instantiate();
             _gridContainer.AddChild(inventorySlot);
+            InventorySlot slot = inventorySlot as InventorySlot;
+            slot.EquipSignal
         }
     }
 

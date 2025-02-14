@@ -1,0 +1,23 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://du17qb37o4ak4"]
+
+[ext_resource type="Shape2D" uid="uid://cbyiulptviuce" path="res://Resources/Weapons/Sword/SwordWeaponItemCollsionShape.tres" id="1_8glry"]
+[ext_resource type="Texture2D" uid="uid://c82k065kadgc8" path="res://Art/Ninja Adventure - Asset Pack/Items/Weapons/Sword2/SpriteInHand.png" id="1_dmnnb"]
+[ext_resource type="Script" path="res://Scripts/Inventory/Weapon/WeaponItem.cs" id="1_hnjb1"]
+
+[resource]
+script = ExtResource("1_hnjb1")
+_attackType = 0
+_inHandTexture = ExtResource("1_dmnnb")
+_collisionShape = ExtResource("1_8glry")
+_upAttachmentPosition = Vector2(5, 10)
+_downAttachmentPosition = Vector2(-5, 11)
+_leftAttachmentPosition = Vector2(-13, 4)
+_rightAttachmentPosition = Vector2(13, 4)
+_upRotation = 0
+_downRotation = -180
+_leftRotation = 90
+_rightRotation = -90
+_upZIndex = 1
+_downZIndex = 0
+_leftZIndex = 1
+_rightZIndex = 1

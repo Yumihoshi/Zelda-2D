@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Scripts/Inventory/PickUpItem.cs" id="1_clds7"]
 [ext_resource type="Resource" uid="uid://csf22pqjersy4" path="res://Resources/Coin/Coin.tres" id="2_e8r2u"]
-[ext_resource type="Texture2D" uid="uid://bd0ahoj4p7lyc" path="res://Art/Ninja Adventure - Asset Pack/Items/Weapons/Sword2/Sprite.png" id="3_q2fej"]
-[ext_resource type="Shape2D" uid="uid://ctm1jh3xx7qf" path="res://Resources/Weapons/Sword/SwordGroundCollsionShape.tres" id="4_lj7pa"]
+[ext_resource type="Texture2D" uid="uid://c82k065kadgc8" path="res://Art/Ninja Adventure - Asset Pack/Items/Weapons/Sword2/SpriteInHand.png" id="3_q2w3p"]
+[ext_resource type="Shape2D" uid="uid://cbyiulptviuce" path="res://Resources/Weapons/Sword/SwordWeaponItemCollsionShape.tres" id="4_dtjfy"]
 
 [node name="Area2D_PickUpItem" type="Area2D"]
 position = Vector2(568, 292)
@@ -13,7 +13,8 @@ inventoryItem = ExtResource("2_e8r2u")
 ItemCount = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("3_q2fej")
+texture = ExtResource("3_q2w3p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = ExtResource("4_lj7pa")
+position = Vector2(0, 0.5)
+shape = ExtResource("4_dtjfy")

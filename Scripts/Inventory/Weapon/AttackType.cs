@@ -17,12 +17,12 @@ public enum AttackType
     /// 近战
     /// </summary>
     Melee = 1,
-    
+
     /// <summary>
     /// 远程
     /// </summary>
     Ranged,
-    
+
     /// <summary>
     /// 魔法
     /// </summary>

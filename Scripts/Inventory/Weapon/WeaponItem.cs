@@ -6,7 +6,6 @@
 // @description:
 // *****************************************************************************
 
-using System;
 using System.Collections.Generic;
 using Godot;
 using LumiVerseFramework.Common;
@@ -16,25 +15,25 @@ namespace Zelda2D.Scripts.Inventory.Weapon;
 public partial class WeaponItem : Resource
 {
     [ExportGroup("武器属性")] [Export] private AttackType _attackType;
+    [Export] private RectangleShape2D _collisionShape;
+    [Export] private Vector2 _downAttachmentPosition;
+    [Export] private int _downRotation;
+    [Export] private int _downZIndex;
 
     [ExportGroup("依赖配置")] [Export] private Texture2D _inHandTexture;
+    [Export] private Vector2 _leftAttachmentPosition;
+    [Export] private int _leftRotation;
+    [Export] private int _leftZIndex;
+    [Export] private Vector2 _rightAttachmentPosition;
+    [Export] private int _rightRotation;
+    [Export] private int _rightZIndex;
     [Export] private Texture2D _sideInHandTexture;
-    [Export] private RectangleShape2D _collisionShape;
 
     [ExportGroup("手持物品位置")] [Export] private Vector2 _upAttachmentPosition;
-    [Export] private Vector2 _downAttachmentPosition;
-    [Export] private Vector2 _leftAttachmentPosition;
-    [Export] private Vector2 _rightAttachmentPosition;
 
     [ExportGroup("旋转")] [Export] private int _upRotation;
-    [Export] private int _downRotation;
-    [Export] private int _leftRotation;
-    [Export] private int _rightRotation;
 
     [ExportGroup("Z轴索引")] [Export] private int _upZIndex;
-    [Export] private int _downZIndex;
-    [Export] private int _leftZIndex;
-    [Export] private int _rightZIndex;
 
     /// <summary>
     /// 获取手持物品贴图相关数据
@@ -46,28 +45,28 @@ public partial class WeaponItem : Resource
         switch (direction)
         {
             case Direction.Up:
-                return new Dictionary<string, object>()
+                return new Dictionary<string, object>
                 {
                     { "AttachmentPosition", _upAttachmentPosition },
                     { "Rotation", _upRotation },
                     { "ZIndex", _upZIndex }
                 };
             case Direction.Down:
-                return new Dictionary<string, object>()
+                return new Dictionary<string, object>
                 {
                     { "AttachmentPosition", _downAttachmentPosition },
                     { "Rotation", _downRotation },
                     { "ZIndex", _downZIndex }
                 };
             case Direction.Left:
-                return new Dictionary<string, object>()
+                return new Dictionary<string, object>
                 {
                     { "AttachmentPosition", _leftAttachmentPosition },
                     { "Rotation", _leftRotation },
                     { "ZIndex", _leftZIndex }
                 };
             case Direction.Right:
-                return new Dictionary<string, object>()
+                return new Dictionary<string, object>
                 {
                     { "AttachmentPosition", _rightAttachmentPosition },
                     { "Rotation", _rightRotation },

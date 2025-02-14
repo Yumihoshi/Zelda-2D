@@ -1,3 +1,4 @@
+using System;
 using System.Text.RegularExpressions;
 using Godot;
 using LumiVerseFramework.Common;
@@ -9,9 +10,11 @@ public partial class InventorySlot : VBoxContainer
     private MenuButton _btnMenu;
     private Button _btnOnClick;
     private bool _isSelected;
-    public Label LabelCount { get; private set; }
     private Label _labelName;
     private Label _labelPrice;
+
+    [Signal]
+    public delegate void EquipEventHandler(InventoryItem.SlotType slotType);
 
     [ExportGroup("背包物品UI槽")] [Export] private bool _singleBtnPress;
     [Export] private string _startLabel;
@@ -19,6 +22,7 @@ public partial class InventorySlot : VBoxContainer
 
     private TextureRect _textureRect;
     private InventoryItem.SlotType _type = InventoryItem.SlotType.NotEquipable;
+    public Label LabelCount { get; private set; }
     public bool IsEmpty { get; set; } = true;
 
     public override void _Ready()
@@ -75,7 +79,23 @@ public partial class InventorySlot : VBoxContainer
     /// <param name="id"></param>
     private void OnPopupMenuIdPressed(long id)
     {
-        YumihoshiDebug.Print<InventorySlot>("UI", "详情按钮点击，id为" + id);
+        switch (id)
+        {
+            case 0:
+                // 装备
+                if (_type != InventoryItem.SlotType.NotEquipable)
+                {
+                    EmitSignal("EquipEventHandler", (Variant)_type);
+                }
+                break;
+            case 1:
+                // 丢弃
+                YumihoshiDebug.Print<InventorySlot>("背包UI", "丢弃物品");
+                break;
+            default:
+                YumihoshiDebug.Error<InventorySlot>("背包UI", "子菜单按钮ID错误");
+                return;
+        }
     }
 
     public void AddItem(InventoryItem item)

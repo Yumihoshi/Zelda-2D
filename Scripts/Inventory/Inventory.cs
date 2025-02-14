@@ -18,10 +18,7 @@ public partial class Inventory : Node
 
     public override void _Process(double delta)
     {
-        if (Input.IsActionJustPressed("OpenInventory"))
-        {
-            _inventoryUi.Trigger();
-        }
+        if (Input.IsActionJustPressed("OpenInventory")) _inventoryUi.Trigger();
     }
 
     /// <summary>
@@ -53,7 +50,8 @@ public partial class Inventory : Node
                 {
                     inventoryItem.Count += count;
                     ItemList[itemIndex] = inventoryItem;
-                    _inventoryUi.UpdateStackAtSlotIndex(inventoryItem.Count, itemIndex);
+                    _inventoryUi.UpdateStackAtSlotIndex(inventoryItem.Count,
+                        itemIndex);
                 }
                 // 物品数量超过上限，创建新的物品
                 else
@@ -63,7 +61,8 @@ public partial class Inventory : Node
                     InventoryItem newItem =
                         item.Duplicate(true) as InventoryItem;
                     inventoryItem.Count = inventoryItem.MaxCount;
-                    _inventoryUi.UpdateStackAtSlotIndex(inventoryItem.Count, itemIndex);
+                    _inventoryUi.UpdateStackAtSlotIndex(inventoryItem.Count,
+                        itemIndex);
                     if (newItem != null) newItem.Count = newCount;
                     else
                         YumihoshiDebug.Error<Inventory>("背包",
